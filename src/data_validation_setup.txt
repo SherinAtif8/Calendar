@@ -1,0 +1,119 @@
+# Data Validation & Conditional Formatting Setup Guide
+
+## 📋 Data Validation Setup
+
+### Column H: Meeting Type (نوع الاجتماع)
+
+1. Select column H (or range H2:H1000)
+2. Go to: Data → Data validation
+3. Criteria: List of items
+4. Enter these items (comma-separated):
+
+```
+EHA Pulse, Internal Meeting, External Meeting, One-to-One Meeting, Project Review, KPI Review, Correspondence, Daily Recap, Steering Committee, Clinical Meeting, RCM/BCM Meeting, Supply Chain Review, Digital Transformation, Hospital Meeting, Operational Meeting, HR Meeting, Maintenance Review, Patient Satisfaction Review, Mortality Review, Hospitality/HK/Food
+```
+
+5. Check: Show dropdown list in cell
+6. Check: Reject input
+7. Click: Save
+
+### Column K: Status (الحالة)
+
+1. Select column K (or range K2:K1000)
+2. Go to: Data → Data validation
+3. Criteria: List of items
+4. Enter these items:
+
+```
+Scheduled, Completed, Cancelled, Moved, Postponed
+```
+
+5. Check: Show dropdown list in cell
+6. Check: Reject input
+7. Click: Save
+
+---
+
+## 🎨 Conditional Formatting Setup
+
+### Rule 1: Status = Completed (Green)
+
+1. Select range: K2:K1000
+2. Go to: Format → Conditional formatting
+3. Format cells if: Text is exactly `Completed`
+4. Formatting style:
+   - Background: #c8e6c9 (Light Green)
+   - Text: #1b5e20 (Dark Green)
+5. Click: Done
+
+### Rule 2: Status = Cancelled (Red)
+
+1. Select range: K2:K1000
+2. Go to: Format → Conditional formatting
+3. Format cells if: Text is exactly `Cancelled`
+4. Formatting style:
+   - Background: #ffcdd2 (Light Red)
+   - Text: #b71c1c (Dark Red)
+   - Font: Bold
+5. Click: Done
+
+### Rule 3: Status = Moved (Yellow)
+
+1. Select range: K2:K1000
+2. Go to: Format → Conditional formatting
+3. Format cells if: Text is exactly `Moved`
+4. Formatting style:
+   - Background: #fff9c4 (Light Yellow)
+   - Text: #f57f17 (Orange)
+5. Click: Done
+
+### Rule 4: Meeting Type = Steering Committee (Indigo)
+
+1. Select range: I2:I1000
+2. Go to: Format → Conditional formatting
+3. Format cells if: Text contains `Steering Committee`
+4. Formatting style:
+   - Background: #e8eaf6 (Indigo)
+   - Text: #283593 (Dark Indigo)
+5. Click: Done
+
+### Rule 5: Meeting Type = EHA Pulse (Blue)
+
+1. Select range: I2:I1000
+2. Go to: Format → Conditional formatting
+3. Format cells if: Text contains `EHA Pulse`
+4. Formatting style:
+   - Background: #e3f2fd (Light Blue)
+   - Text: #1565c0 (Blue)
+5. Click: Done
+
+---
+
+## ✅ Verification Checklist
+
+After setup, verify:
+
+- [ ] Column H shows dropdown with 20 meeting types
+- [ ] Column K shows dropdown with 5 statuses
+- [ ] Typing invalid data in H or K shows error
+- [ ] Changing status to "Completed" turns cell green
+- [ ] Changing status to "Cancelled" turns cell red
+- [ ] Changing status to "Moved" turns cell yellow
+- [ ] "Steering Committee" in column I turns indigo
+- [ ] "EHA Pulse" in column I turns blue
+
+---
+
+## 🐛 Troubleshooting
+
+### Dropdown not showing?
+- Make sure "Show dropdown list in cell" is checked
+- Refresh the sheet (Ctrl+R)
+
+### Colors not applying?
+- Check that the text matches exactly (case-sensitive)
+- Make sure the range is correct (K2:K1000, not K1:K1000)
+
+### Can still enter invalid data?
+- Make sure "Reject input" is checked in Data Validation
+- Clear browser cache and refresh
